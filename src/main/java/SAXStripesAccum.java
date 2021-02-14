@@ -4,12 +4,12 @@ import org.xml.sax.helpers.DefaultHandler;
 import java.util.HashSet;
 import java.util.LinkedList;
 
-public class SAXStripesAccumulator extends DefaultHandler {
+public class SAXStripesAccum extends DefaultHandler {
     private final HashSet<String> tags;
     private LinkedList<String> text;
     private String currentElement;
 
-    public SAXStripesAccumulator() {
+    public SAXStripesAccum() {
         text = new LinkedList<>();
         tags = createTagsSet();
         currentElement = "";

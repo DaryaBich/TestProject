@@ -16,7 +16,7 @@ public class Parser {
         );
         SAXParser parser = factory.newSAXParser();
 
-        SAXStripesAccumulator saxStripesAccumulator = new SAXStripesAccumulator();
+        SAXStripesAccum saxStripesAccumulator = new SAXStripesAccum();
         InputStream inputStream = new URL(url).openStream();
         InputSource inputSource = new InputSource(inputStream);
         inputSource.setEncoding("UTF-8");

@@ -7,7 +7,7 @@ public final class TextWorker {
 
     public static void splitAndPrintText(LinkedList<String> stripesAccumulatorText) {
         HashMap<String, Integer> wordsCount = TextWorker.splitText(stripesAccumulatorText);
-        TextWorker.printSortedWords(wordsCount);
+        TextWorker.sortAndPrintText(wordsCount);
     }
 
     private static HashMap<String, Integer> splitText(LinkedList<String> stripes) {
@@ -27,7 +27,7 @@ public final class TextWorker {
         return countOfWords;
     }
 
-    private static void printSortedWords(HashMap<String, Integer> wordsCount) {
+    private static void sortAndPrintText(HashMap<String, Integer> wordsCount) {
         wordsCount
                 .entrySet()
                 .stream()

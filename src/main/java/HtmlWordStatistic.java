@@ -4,24 +4,24 @@ import java.io.IOException;
 import java.util.LinkedList;
 
 public class HtmlWordStatistic {
-    private String url;
+    private final String url;
 
     public HtmlWordStatistic(String url) {
         this.url = url;
     }
 
-    public void printWordStatistic() {
+    public void getAndPrintWordStatistic() {
         try {
-            LinkedList<String> stripesAccumulatorText = Parser.parse(url);
-            TextWorker.splitAndPrintText(stripesAccumulatorText);
+            LinkedList<String> stripesAccumulator = Parser.parse(url);
+            TextWorker.splitAndPrintText(stripesAccumulator);
         } catch (IOException e) {
             System.out.println("Not correct url, please check");
             e.printStackTrace();
         } catch (ParserConfigurationException e) {
-            System.out.println("Problem with parser");
+            System.out.println("Problem with parser, please try again");
             e.printStackTrace();
         } catch (SAXException e) {
-            System.out.println("Problem with SAX");
+            System.out.println("Problem with SAX, please try again");
             e.printStackTrace();
         }
     }
