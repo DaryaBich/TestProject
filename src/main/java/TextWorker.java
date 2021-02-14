@@ -3,7 +3,7 @@ import java.util.LinkedList;
 import java.util.Map;
 
 public final class TextWorker {
-    private static final String regexp = "\\s|,|!|\\.|\"|;|\\?|:|\\]|\\[|}|\\{|\n|\t|\r|»|«|\\d|%|<|>|\\(|\\)|©";
+    private static final String regexp = "\\s|,|!|\\.|\"|;|\\?|:|\\]|\\[|}|\\{|\n|\t|\r|»|«|\\d|%|<|>|\\(|\\)|©|/";
 
     public static void splitAndPrintText(LinkedList<String> stripesAccumulatorText) {
         HashMap<String, Integer> wordsCount = TextWorker.splitText(stripesAccumulatorText);
@@ -16,11 +16,10 @@ public final class TextWorker {
             String[] words = stripe.split(regexp);
             for (String word : words) {
                 word = word.toLowerCase().trim();
-                if (!word.equals("")) {
-                    if (!word.equals("-")) {
-                        int count = countOfWords.containsKey(word) ? countOfWords.get(word) + 1 : 1;
-                        countOfWords.put(word, count);
-                    }
+                if (!(word.equals("") || word.equals("—") || word.equals("-") || word.equals("–") ||
+                        word.startsWith("-"))) {
+                    int count = countOfWords.containsKey(word) ? countOfWords.get(word) + 1 : 1;
+                    countOfWords.put(word, count);
                 }
             }
         }
