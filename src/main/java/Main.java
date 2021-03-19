@@ -7,7 +7,6 @@ public class Main {
         Scanner in = new Scanner(System.in);
         String url = in.next();
 
-        HtmlWordStatistic statistic = new HtmlWordStatistic(url);
-        statistic.getAndPrintWordStatistic();
+        HtmlWordStatistic statistic = HtmlWordStatistic.getAndPrintWordStatistic(url);
     }
 }
