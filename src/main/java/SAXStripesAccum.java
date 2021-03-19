@@ -14,7 +14,6 @@ public final class SAXStripesAccum extends DefaultHandler {
     private SAXStripesAccum() {
         text = new LinkedList<>();
         tags = createTagsSet();
-        currentElement = "";
     }
 
     public LinkedList<String> getText() {
