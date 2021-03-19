@@ -9,7 +9,7 @@ public final class HtmlWordStatistic {
     private HtmlWordStatistic() {
     }
 
-    public void getAndPrintWordStatistic(String url) {
+    public static void getAndPrintWordStatistic(String url) {
         try {
             LinkedList<String> stripesAccumulator = Parser.parse(url);
             TextWorker.splitAndPrintText(stripesAccumulator);
