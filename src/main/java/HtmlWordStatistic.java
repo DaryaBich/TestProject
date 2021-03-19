@@ -5,13 +5,11 @@ import java.io.IOException;
 import java.util.LinkedList;
 
 public class HtmlWordStatistic {
-    private final String url;
-
-    public HtmlWordStatistic(String url) {
-        this.url = url;
+    
+    private HtmlWordStatistic() {
     }
 
-    public void getAndPrintWordStatistic() {
+    public void getAndPrintWordStatistic(String url) {
         try {
             LinkedList<String> stripesAccumulator = Parser.parse(url);
             TextWorker.splitAndPrintText(stripesAccumulator);
