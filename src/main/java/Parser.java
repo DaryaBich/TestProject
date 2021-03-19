@@ -9,7 +9,7 @@ import java.io.InputStream;
 import java.net.URL;
 import java.util.LinkedList;
 
-public class Parser {
+public final class Parser {
     private Parser(){}
     
     public static LinkedList<String> parse(String url) throws ParserConfigurationException, SAXException, IOException {
