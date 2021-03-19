@@ -18,13 +18,12 @@ public final class Parser {
                 null
         );
         SAXParser parser = factory.newSAXParser();
-
-        SAXStripesAccum saxStripesAccumulator = new SAXStripesAccum();
+        
         InputStream inputStream = new URL(url).openStream();
         InputSource inputSource = new InputSource(inputStream);
         inputSource.setEncoding("UTF-8");
 
-        parser.parse(inputSource, saxStripesAccumulator);
+        parser.parse(inputSource, SAXStripesAccum.INSTANCE);
         return saxStripesAccumulator.getText();
     }
 }
