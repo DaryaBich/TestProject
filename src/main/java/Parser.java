@@ -24,6 +24,6 @@ public final class Parser {
         inputSource.setEncoding("UTF-8");
 
         parser.parse(inputSource, SAXStripesAccum.INSTANCE);
-        return saxStripesAccumulator.getText();
+        return SAXStripesAccum.INSTANCE.getText();
     }
 }

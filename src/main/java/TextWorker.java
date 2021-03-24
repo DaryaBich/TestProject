@@ -1,25 +1,27 @@
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
+import java.util.regex.Pattern;
 
 public final class TextWorker {
-    private static final String SPLITTER = "\\s|,|!|\\.|\"|;|\\?|:|\\]|\\[|}|\\{|\n|\t|\r|»|«|\\d|%|<|>|\\(|\\)|©|/";
-    
-    private TextWorker(){}
+    private static final String SPLITTER = "\\s|,|!|\\.|\"|;|\\?|:|\\]|\\[|}|\\{|\n|\t|\r|»|«|%|<|>|\\(|\\)|©|/|\\d";
+    private static final String FILTER = "[^—\\-–-]+";
 
-    public static void splitAndPrintText(LinkedList<String> stripesAccumulatorText) {
-        HashMap<String, Integer> wordsCounter = splitText(stripesAccumulatorText);
+    private TextWorker() {
+    }
+
+    public static void splitAndPrintText(LinkedList<String> linesAccum) {
+        HashMap<String, Integer> wordsCounter = splitText(linesAccum);
         sortAndPrintText(wordsCounter);
     }
 
-    private static HashMap<String, Integer> splitText(LinkedList<String> stripes) {
+    private static HashMap<String, Integer> splitText(LinkedList<String> linesAccum) {
         HashMap<String, Integer> countOfWords = new HashMap<>();
-        for (String stripe : stripes) {
-            String[] words = stripe.split(SPLITTER);
+        for (String line : linesAccum) {
+            String[] words = line.split(SPLITTER);
             for (String word : words) {
-                word = word.toLowerCase().trim();
-                if (!(word.equals("") || word.equals("—") || word.equals("-") || word.equals("–") || //это муть какая-то
-                        word.startsWith("-"))) {
+                if (Pattern.matches(FILTER, word) && !word.isEmpty()) {
+                    word = word.toLowerCase();
                     int count = countOfWords.containsKey(word) ? countOfWords.get(word) + 1 : 1;
                     countOfWords.put(word, count);
                 }
@@ -29,6 +31,7 @@ public final class TextWorker {
     }
 
     private static void sortAndPrintText(HashMap<String, Integer> wordsCount) {
+        System.out.println("\n*******\nResult\n*******\nWords and their count:");
         wordsCount
                 .entrySet()
                 .stream()

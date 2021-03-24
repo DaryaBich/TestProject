@@ -8,7 +8,7 @@ public final class SAXStripesAccum extends DefaultHandler {
     public static final SAXStripesAccum INSTANCE = new SAXStripesAccum();
     
     private final HashSet<String> tags;
-    private final LinkedList<String> text;
+    private LinkedList<String> text;
     private String currentElement;
 
     private SAXStripesAccum() {
@@ -74,7 +74,6 @@ public final class SAXStripesAccum extends DefaultHandler {
         tagsSet.add("rtc");
         tagsSet.add("rp");
         tagsSet.add("s");
-        tagsSet.add("small");
         tagsSet.add("span");
         tagsSet.add("summary");
         tagsSet.add("p");
