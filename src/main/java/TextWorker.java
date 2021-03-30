@@ -4,7 +4,7 @@ import java.util.Map;
 import java.util.regex.Pattern;
 
 public final class TextWorker {
-    private static final String SPLITTER = "\\s|,|!|\\.|\"|;|\\?|:|\\]|\\[|}|\\{|\n|\t|\r|»|«|%|<|>|\\(|\\)|©|/|\\d";
+    private static final String SPLITTER = "\\s|,|!|\\.|\"|;|\\?|:|\\]|\\[|}|\\{|\n|\t|\r|»|«|%|<|>|\\(|\\)|©|/|\\d|=";
     private static final String FILTER = "[^—\\-–-]+";
 
     private TextWorker() {
@@ -31,7 +31,6 @@ public final class TextWorker {
     }
 
     private static void sortAndPrintText(HashMap<String, Integer> wordsCount) {
-        System.out.println("\n*******\nResult\n*******\nWords and their count:");
         wordsCount
                 .entrySet()
                 .stream()

@@ -2,7 +2,6 @@ import org.xml.sax.SAXException;
 
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
-import java.net.MalformedURLException;
 import java.util.LinkedList;
 
 @lombok.extern.slf4j.Slf4j
@@ -14,9 +13,9 @@ public final class HtmlWordStatistic {
         try {
             LinkedList<String> stripesAccumulator = Parser.parse(url);
             TextWorker.splitAndPrintText(stripesAccumulator);
-        } catch (IOException e) {
+        }catch (IOException e) {
             System.out.println("Your url isn't correct and I rewrite it on https://www.simbirsoft.com/");
-            log.error("Url isn't correct", e);
+            log.error("Url "+url+" isn't correct", e);
             HtmlWordStatistic.getAndPrintWordStatistic("https://www.simbirsoft.com/");
         } catch (ParserConfigurationException e) {
             System.out.println("Problem with parser, please try again");
