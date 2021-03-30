@@ -12,20 +12,20 @@ public class ParserTest {
     @Test
     public void testPageLapkinsParse() {
         try {
-            LinkedList<String> lines =  Parser.parse("https://lapkins.ru");
-            Assert.assertEquals("Lapkins.ru — собаки, кошки и их хозяева",lines.get(0));
+            LinkedList<String> lines = Parser.parse("https://lapkins.ru");
+            Assert.assertEquals("Lapkins.ru — собаки, кошки и их хозяева", lines.get(0));
         } catch (ParserConfigurationException | IOException | SAXException e) {
-            throw new AssertionError("Error: "+ Arrays.toString(e.getStackTrace()));
+            throw new AssertionError("Error: " + Arrays.toString(e.getStackTrace()));
         }
     }
 
     @Test
-    public void testSimbirsoftParse(){
+    public void testSimbirsoftParse() {
         try {
-            LinkedList<String> lines =  Parser.parse("https://www.simbirsoft.com/");
+            LinkedList<String> lines = Parser.parse("https://www.simbirsoft.com/");
             Assert.assertTrue(lines.contains("SimbirSoft"));
         } catch (ParserConfigurationException | IOException | SAXException e) {
-            throw new AssertionError("Error: "+ Arrays.toString(e.getStackTrace()));
+            throw new AssertionError("Error: " + Arrays.toString(e.getStackTrace()));
         }
     }
 }

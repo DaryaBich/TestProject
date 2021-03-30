@@ -39,7 +39,7 @@ public class TextWorkerTest {
     }
 
     @Test
-    public void testSplitAndPrintText(){
+    public void testSplitAndPrintText() {
         LinkedList<String> lines = new LinkedList<>();
         lines.add("Jingle bells, jingle bells\nJingle all the way\nOh, what fun it is to ride\n" +
                 "In a one horse open sleigh");

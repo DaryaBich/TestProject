@@ -1,12 +1,13 @@
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
+
 import java.util.HashSet;
 import java.util.LinkedList;
 
 public final class SAXStripesAccum extends DefaultHandler {
     public static final SAXStripesAccum INSTANCE = new SAXStripesAccum();
-    
+
     private final HashSet<String> tags;
     private LinkedList<String> text;
     private String currentElement;

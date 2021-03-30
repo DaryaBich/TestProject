@@ -29,7 +29,7 @@ public class HtmlWordStatisticTest {
     }
 
     @Test
-    public void testFailGetAndPrintWordStatistic(){
+    public void testFailGetAndPrintWordStatistic() {
         HtmlWordStatistic.getAndPrintWordStatistic("lapkins.ru");
         String result = outContent.toString();
         Assert.assertEquals("Your url isn't correct and I rewrite it on https://www.simbirsoft.com/",
